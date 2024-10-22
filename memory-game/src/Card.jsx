@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Card({ cardContent, cardNumber }) {
+function Card({ cardContent, cardNumber, onSelection }) {
   const [selectedCard, setSelectedCard] = useState(false);
 
   const handleClick = (element) => {
@@ -15,6 +15,7 @@ function Card({ cardContent, cardNumber }) {
         key={cardNumber}
         onClick={() => {
           handleClick(cardContent);
+          selectedCard === false && onSelection();
         }}
       >
         {cardContent}

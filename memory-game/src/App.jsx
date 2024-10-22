@@ -33,11 +33,21 @@ let deck = createDeck();
 deck = shuffle(deck);
 
 function App() {
+  let cardCount = 0;
+  const handleSelection = () => {
+    cardCount += 1;
+    console.log(cardCount);
+  };
+
   return (
     <>
       <div className="card-deck">
         {deck.map((card, index) => (
-          <Card cardContent={card} key={index} />
+          <Card
+            cardContent={card}
+            key={index}
+            onSelection={() => handleSelection()}
+          />
         ))}
       </div>
     </>
